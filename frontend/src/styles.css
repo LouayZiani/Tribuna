@@ -1,35 +1,23 @@
-/* ── Google Fonts ── */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&display=swap');
 
-/* ── CSS Variables ── */
 :root {
-  /* Colors */
-  --gold:           #f5c518;
-  --gold-dim:       rgba(245, 197, 24, 0.15);
-  --gold-border:    rgba(245, 197, 24, 0.3);
-
-  /* Backgrounds */
-  --bg:             #05050f;
-  --bg-card:        #0e0e1e;
-  --surface:        #0f0f1a;
-  --card-bg:        #1a1a2e;
-
-  /* Borders */
-  --border:         #1e1e30;
-
-  /* Text */
-  --text-primary:   #f0f0f8;
+  --gold: #f5c518;
+  --gold-dim: rgba(245, 197, 24, 0.15);
+  --gold-border: rgba(245, 197, 24, 0.3);
+  --bg: #05050f;
+  --bg-card: #0e0e1e;
+  --surface: #0f0f1a;
+  --card-bg: #1a1a2e;
+  --border: #1e1e30;
+  --text-primary: #f0f0f8;
   --text-secondary: #b0b0c8;
-  --text-muted:     #606080;
-  --text-dim:       #808098;
-
-  /* Status */
-  --green:          #22c55e;
-  --red:            #ef4444;
-  --blue:           #3b82f6;
+  --text-muted: #606080;
+  --text-dim: #808098;
+  --green: #22c55e;
+  --red: #ef4444;
+  --blue: #3b82f6;
 }
 
-/* ── Reset ── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -43,14 +31,27 @@ html {
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  background: var(--bg);
   color: var(--text-primary);
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
+  background-image: url('/das.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
 }
 
-/* Scrollbar */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  z-index: -1;
+}
+
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
@@ -77,5 +78,4 @@ select option { background: var(--bg-card); }
 
 img { display: block; max-width: 100%; }
 
-/* ── Utility ── */
 .accent { color: var(--gold); }

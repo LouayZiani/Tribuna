@@ -21,14 +21,14 @@
         <a routerLink="/matches" class="btn btn-primary">Browse Matches</a>
         <a routerLink="/my-tickets" class="btn btn-ghost">My Tickets</a>
       } @else {
-        <a routerLink="/login" class="btn btn-primary">Get Tickets</a>
+        <a routerLink="/login" class="btn btn-primary" >Get Tickets</a>
         <a routerLink="/login" class="btn btn-ghost">Sign In</a>
       }
     </div>
   </div>
 </section>
 
-<section class="features-section">
+<section class="features-section section-divider">
   <h2 class="section-title">Why Tribuna?</h2>
   <div class="features-grid">
     @for (f of features; track f.title) {
@@ -41,7 +41,7 @@
   </div>
 </section>
 
-<section class="cta-banner">
+<section class="cta-banner section-divider">
   <h2>Ready to experience KPL live?</h2>
-  <a routerLink="/matches" class="btn btn-primary">See All Fixtures →</a>
+  <a routerLink="/matches" class="btn btn-primary">See All Fixtures</a>
 </section>

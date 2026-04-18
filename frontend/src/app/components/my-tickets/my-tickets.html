@@ -2,42 +2,45 @@
 
   <h1>My Tickets</h1>
 
-  @if (errorMessage) {
+  @if (isLoading) {
+    <p class="loading-msg">Loading tickets...</p>
+  } @else if (errorMessage) {
     <div class="error-msg">{{ errorMessage }}</div>
-  }
-
-  @if (tickets.length === 0 && !errorMessage) {
-    <p class="empty-msg">You have no tickets yet. <a routerLink="/matches">Browse matches →</a></p>
-  }
-
-  @for (t of tickets; track t.id) {
-    <div class="ticket-card">
-      @if (t.match_details) {
-        <h3>{{ t.match_details.home_team }} vs {{ t.match_details.away_team }}</h3>
-        <p>📅 {{ t.match_details.date | date:'mediumDate' }}</p>
-        <p>🏟️ {{ t.match_details.stadium }}, {{ t.match_details.city }}</p>
-      } @else {
-        <h3>Match #{{ t.match }}</h3>
-      }
-
-      @if (t.seat_details) {
-        <p>🎟️ Section: {{ t.seat_details.section }} — Row {{ t.seat_details.row }}, Seat {{ t.seat_details.number }}</p>
-      } @else {
-        <p>Seat #{{ t.seat }}</p>
-      }
-
-      <p class="ticket-date">Booked: {{ t.created_at | date:'short' }}</p>
-
-      <button class="btn btn-danger"
-              (click)="cancel(t.id)"
-              [disabled]="cancellingId === t.id">
-        @if (cancellingId === t.id) {
-          Cancelling...
+  } @else if (tickets.length === 0) {
+    <p class="empty-msg">
+      You have no tickets yet.
+      <a routerLink="/matches">Browse matches →</a>
+    </p>
+  } @else {
+    @for (t of tickets; track t.id) {
+      <div class="ticket-card">
+        @if (t.match_details) {
+          <h3>{{ t.match_details.home_team }} vs {{ t.match_details.away_team }}</h3>
+          <p>{{ t.match_details.date | date:'mediumDate' }}</p>
+          <p>{{ t.match_details.stadium }}, {{ t.match_details.city }}</p>
         } @else {
-          Cancel Ticket
+          <h3>Match #{{ t.match }}</h3>
         }
-      </button>
-    </div>
+
+        @if (t.seat_details) {
+          <p>Section: {{ t.seat_details.section }} — Row {{ t.seat_details.row }}, Seat {{ t.seat_details.number }}</p>
+        } @else {
+          <p>Seat #{{ t.seat }}</p>
+        }
+
+        <p class="ticket-date">Booked: {{ t.created_at | date:'short' }}</p>
+
+        <button class="btn btn-danger"
+                (click)="cancel(t.id)"
+                [disabled]="cancellingId === t.id">
+          @if (cancellingId === t.id) {
+            Cancelling...
+          } @else {
+            Cancel Ticket
+          }
+        </button>
+      </div>
+    }
   }
 
 </div>

@@ -15,6 +15,7 @@ export class MyTicketsComponent implements OnInit {
   tickets: Ticket[] = [];
   errorMessage = '';
   cancellingId: number | null = null;
+  isLoading = true;
 
   constructor(private api: ApiService) {}
 
@@ -23,13 +24,21 @@ export class MyTicketsComponent implements OnInit {
   }
 
   loadTickets(): void {
+    this.isLoading = true;
+    this.errorMessage = '';
+
     this.api.getMyTickets().subscribe({
-      next: (data) => this.tickets = data,
-      error: () => this.errorMessage = 'Failed to load your tickets. Please try again.'
+      next: (data) => {
+        this.tickets = data;
+        this.isLoading = false;
+      },
+      error: () => {
+        this.errorMessage = 'Failed to load your tickets. Please try again.';
+        this.isLoading = false;
+      }
     });
   }
 
-  // (click) event → DELETE API request — requirement #2 + #7
   cancel(ticketId: number): void {
     this.cancellingId = ticketId;
     this.errorMessage = '';

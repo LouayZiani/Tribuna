@@ -6,13 +6,44 @@
   justify-content: center;
   overflow: hidden;
   padding: 4rem 2rem;
+
+  background-image: url('/das.webp'); /* fixed path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  /* Blur + darken overlay */
 }
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55); /* dark overlay */
+  backdrop-filter: blur(6px);   /* blur effect */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2; /* keep text above overlay */
+}
+
 
 .hero-bg {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
+
+.section-divider {
+  border: none;
+  border-top: 4px solid var(--gold);
+  width: 80%;
+  margin: 4rem auto;
+}
+
 
 .glow-left {
   position: absolute;
@@ -74,7 +105,7 @@
 
 .hero-desc {
   font-size: 1.05rem;
-  color: var(--text-dim);
+  color: white;
   line-height: 1.7;
   margin-bottom: 2.5rem;
 }
@@ -127,13 +158,70 @@
 
 .feature-card p { font-size: 0.875rem; color: var(--text-dim); line-height: 1.6; }
 
-/* CTA Banner */
 .cta-banner {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   padding: 5rem 2rem;
   text-align: center;
-  background: linear-gradient(135deg, rgba(0,87,183,0.15) 0%, rgba(255,215,0,0.06) 100%);
+  background: linear-gradient(135deg, rgba(255, 215, 0, 1) 0%, rgba(240, 196, 1, 0.06) 70%);
 }
 
 .cta-banner h2 { font-size: 2.5rem; margin-bottom: 2rem; }
+.btn-primary {
+  background-color: rgba(255, 215, 0, 1);
+  color: #05050f; /* dark text for contrast */
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+}
+
+.btn-primary:hover {
+  background-color: rgba(255, 215, 0, 0.85); /* slightly dimmer gold */
+  box-shadow: 0 5px 12px rgba(0,0,0,0.35);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  background-color: rgba(255, 215, 0, 0.75); /* pressed look */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+  transform: translateY(0);
+}
+
+.btn-primary:focus {
+  outline: 2px solid rgba(255, 215, 0, 0.6);
+  outline-offset: 2px;
+}
+
+
+.btn-ghost {
+  background-color: rgba(255, 215, 0, 1);
+  color: #05050f; /* dark text for contrast */
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+}
+
+.btn-ghost:hover {
+  background-color: rgba(255, 215, 0, 0.85); /* slightly dimmer gold */
+  box-shadow: 0 5px 12px rgba(0,0,0,0.35);
+  transform: translateY(-2px);
+}
+
+.btn-ghost:active {
+  background-color: rgba(255, 215, 0, 0.75); /* pressed look */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+  transform: translateY(0);
+}
+
+.btn-ghost:focus {
+  outline: 2px solid rgba(255, 215, 0, 0.6);
+  outline-offset: 2px;
+}

@@ -5,7 +5,7 @@
     @if (matchInfo) {
       <div class="match-title">
         <h1>{{ matchInfo.home_team }} vs {{ matchInfo.away_team }}</h1>
-        <p>🏟️ {{ matchInfo.stadium }}, {{ matchInfo.city }} &nbsp;|&nbsp; 📅 {{ matchInfo.date | date:'dd MMM yyyy' }}</p>
+        <p>{{ matchInfo.stadium }}, {{ matchInfo.city }} &nbsp;|&nbsp; {{ matchInfo.date | date:'dd MMM yyyy' }}</p>
       </div>
     } @else {
       <h1>Select Your Seat</h1>
@@ -39,7 +39,7 @@
   <!-- Filter -->
   <div class="filter-bar">
     <label>Filter by section:</label>
-    <select [(ngModel)]="selectedSection" (change)="loadSeats()">
+    <select [(ngModel)]="selectedSection" (ngModelChange)="loadSeats()">
       <option value="">All Sections</option>
       <option value="VIP">VIP only</option>
       <option value="Regular">Regular only</option>

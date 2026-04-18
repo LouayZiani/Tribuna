@@ -55,3 +55,35 @@
   align-self: flex-start;
   margin-top: 0.75rem;
 }
+/*this i s for cancel buttom*/
+.btn-danger {
+  width: 100%;
+}
+.btn-danger {
+  background-color: rgba(255, 215, 0, 1);
+  color: #05050f; /* dark text for contrast */
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+}
+
+.btn-danger:hover {
+  background-color: rgba(255, 215, 0, 0.85); /* slightly dimmer gold */
+  box-shadow: 0 5px 12px rgba(0,0,0,0.35);
+  transform: translateY(-2px);
+}
+
+.btn-danger:active {
+  background-color: rgba(255, 215, 0, 0.75); /* pressed look */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+  transform: translateY(0);
+}
+
+.btn-danger:focus {
+  outline: 2px solid rgba(255, 215, 0, 0.6);
+  outline-offset: 2px;
+}

@@ -2,7 +2,7 @@
 
   <div class="page-header">
     <h1>Upcoming Matches</h1>
-    <p class="subtitle">Kazakhstan Premier League — {{ matches.length }} fixtures</p>
+    <p class="subtitle">Kazakhstan Premier League (Kairat farmers league)</p>
   </div>
 
   @if (isLoading) {
@@ -44,16 +44,16 @@
             </div>
 
             <div class="match-info">
-              <span class="info-item">🏟️ {{ m.stadium }}</span>
-              <span class="info-item">📍 {{ m.city }}</span>
-              <span class="info-item">📅 {{ m.date | date:'dd MMM yyyy, HH:mm' }}</span>
+              <span class="info-item">{{ m.stadium }}</span>
+              <span class="info-item">{{ m.city }}</span>
+              <span class="info-item">{{ m.date | date:'dd MMM yyyy, HH:mm' }}</span>
             </div>
 
             <div class="prices-seats">
               <div class="price-tag vip">VIP — {{ m.vip_price | number }} ₸</div>
               <div class="price-tag regular">Regular — {{ m.regular_price | number }} ₸</div>
               <div class="seats-left" [class.low]="m.available_seats < 20">
-                🎟️ {{ m.available_seats }} seats left
+                 {{ m.available_seats }} seats left
               </div>
             </div>
 
