@@ -1,0 +1,47 @@
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="glow-left"></div>
+    <div class="glow-right"></div>
+    <div class="center-circle"></div>
+  </div>
+
+  <div class="hero-content">
+    <span class="eyebrow">Kazakhstan Premier League</span>
+    <h1 class="hero-title">
+      Book Your<br>
+      <span class="gold">Seat at the</span><br>
+      Stadium
+    </h1>
+    <p class="hero-desc">
+      Real-time ticket booking for every KPL match.<br>
+      VIP &amp; Regular sections. Instant confirmation.
+    </p>
+    <div class="hero-cta">
+      @if (auth.isLoggedIn$ | async) {
+        <a routerLink="/matches" class="btn btn-primary">Browse Matches</a>
+        <a routerLink="/my-tickets" class="btn btn-ghost">My Tickets</a>
+      } @else {
+        <a routerLink="/login" class="btn btn-primary">Get Tickets</a>
+        <a routerLink="/login" class="btn btn-ghost">Sign In</a>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="features-section">
+  <h2 class="section-title">Why Tribuna?</h2>
+  <div class="features-grid">
+    @for (f of features; track f.title) {
+      <div class="feature-card">
+        <span class="feature-icon">{{ f.icon }}</span>
+        <h3>{{ f.title }}</h3>
+        <p>{{ f.desc }}</p>
+      </div>
+    }
+  </div>
+</section>
+
+<section class="cta-banner">
+  <h2>Ready to experience KPL live?</h2>
+  <a routerLink="/matches" class="btn btn-primary">See All Fixtures →</a>
+</section>

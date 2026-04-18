@@ -1,0 +1,20 @@
+<nav class="navbar">
+  <a routerLink="/home" class="brand">
+    <span class="brand-name">TRIBUNA</span>
+    <span class="brand-sub">KPL TICKETS</span>
+  </a>
+
+  <div class="nav-links">
+    @if (auth.isLoggedIn$ | async) {
+      <a routerLink="/matches" routerLinkActive="active">Matches</a>
+      <a routerLink="/my-tickets" routerLinkActive="active">My Tickets</a>
+      <button class="btn-logout" (click)="logout()">Logout</button>
+    } @else {
+      <a routerLink="/login" class="btn-signin">Sign In</a>
+    }
+  </div>
+</nav>
+
+<main class="page-content">
+  <router-outlet />
+</main>

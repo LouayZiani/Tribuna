@@ -1,0 +1,72 @@
+<div class="matches-page">
+
+  <div class="page-header">
+    <h1>Upcoming Matches</h1>
+    <p class="subtitle">Kazakhstan Premier League — {{ matches.length }} fixtures</p>
+  </div>
+
+  @if (isLoading) {
+    <div class="loading">
+      <span class="spinner"></span> Loading matches...
+    </div>
+  } @else if (errorMessage) {
+    <div class="error-msg">{{ errorMessage }}</div>
+  } @else if (matches.length === 0) {
+    <p class="empty">No matches available</p>
+  } @else {
+    <div class="matches-grid">
+      @for (m of matches; track m.id) {
+        <div class="match-card">
+
+          <div class="stadium-visual">
+            <svg viewBox="0 0 320 100" xmlns="http://www.w3.org/2000/svg">
+              <rect x="40" y="20" width="240" height="60" rx="4" fill="#1a4a1a"/>
+              <rect x="40" y="20" width="240" height="60" rx="4" fill="none" stroke="#2d6e2d" stroke-width="1.5"/>
+              <line x1="160" y1="20" x2="160" y2="80" stroke="#2d6e2d" stroke-width="1"/>
+              <circle cx="160" cy="50" r="14" fill="none" stroke="#2d6e2d" stroke-width="1"/>
+              <circle cx="160" cy="50" r="2" fill="#2d6e2d"/>
+              <rect x="40" y="35" width="8" height="30" rx="1" fill="none" stroke="#3a8a3a" stroke-width="1"/>
+              <rect x="272" y="35" width="8" height="30" rx="1" fill="none" stroke="#3a8a3a" stroke-width="1"/>
+              <rect x="40" y="29" width="36" height="42" rx="2" fill="none" stroke="#2d6e2d" stroke-width="1"/>
+              <rect x="244" y="29" width="36" height="42" rx="2" fill="none" stroke="#2d6e2d" stroke-width="1"/>
+              <rect x="30" y="8" width="260" height="10" rx="3" fill="rgba(255,215,0,0.15)" stroke="rgba(255,215,0,0.3)" stroke-width="0.5"/>
+              <rect x="30" y="82" width="260" height="10" rx="3" fill="rgba(255,215,0,0.15)" stroke="rgba(255,215,0,0.3)" stroke-width="0.5"/>
+              <rect x="8" y="18" width="12" height="64" rx="3" fill="rgba(0,87,183,0.2)" stroke="rgba(0,87,183,0.4)" stroke-width="0.5"/>
+              <rect x="300" y="18" width="12" height="64" rx="3" fill="rgba(0,87,183,0.2)" stroke="rgba(0,87,183,0.4)" stroke-width="0.5"/>
+            </svg>
+          </div>
+
+          <div class="card-body">
+            <div class="teams">
+              <span class="team home">{{ m.home_team }}</span>
+              <span class="vs">VS</span>
+              <span class="team away">{{ m.away_team }}</span>
+            </div>
+
+            <div class="match-info">
+              <span class="info-item">🏟️ {{ m.stadium }}</span>
+              <span class="info-item">📍 {{ m.city }}</span>
+              <span class="info-item">📅 {{ m.date | date:'dd MMM yyyy, HH:mm' }}</span>
+            </div>
+
+            <div class="prices-seats">
+              <div class="price-tag vip">VIP — {{ m.vip_price | number }} ₸</div>
+              <div class="price-tag regular">Regular — {{ m.regular_price | number }} ₸</div>
+              <div class="seats-left" [class.low]="m.available_seats < 20">
+                🎟️ {{ m.available_seats }} seats left
+              </div>
+            </div>
+
+            <button class="btn btn-primary book-btn"
+                    (click)="goToBooking(m.id)"
+                    [disabled]="m.available_seats === 0">
+              {{ m.available_seats === 0 ? 'Sold Out' : 'Book Ticket' }}
+            </button>
+          </div>
+
+        </div>
+      }
+    </div>
+  }
+
+</div>

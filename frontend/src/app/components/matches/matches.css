@@ -1,0 +1,138 @@
+.matches-page {
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+.matches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+
+.match-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.match-card:hover {
+  border-color: rgba(255, 215, 0, 0.3);
+  transform: translateY(-3px);
+}
+
+.stadium-visual {
+  background: #0a1a0a;
+  padding: 1rem 1.5rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.stadium-visual svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-body {
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.teams {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.team {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  flex: 1;
+}
+
+.team.home { text-align: left; color: var(--text); }
+.team.away { text-align: right; color: var(--text-dim); }
+
+.vs {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.85rem;
+  color: var(--gold);
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--gold-dim);
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.match-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.info-item {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+
+.prices-seats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  align-items: center;
+}
+
+.price-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 3px;
+  letter-spacing: 0.03em;
+}
+
+.price-tag.vip {
+  background: rgba(255, 215, 0, 0.12);
+  color: var(--gold);
+  border: 1px solid rgba(255, 215, 0, 0.25);
+}
+
+.price-tag.regular {
+  background: rgba(0, 87, 183, 0.15);
+  color: #6ab0ff;
+  border: 1px solid rgba(0, 87, 183, 0.3);
+}
+
+.seats-left {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin-left: auto;
+}
+
+.seats-left.low {
+  color: #ff4d6d;
+  font-weight: 600;
+}
+
+.book-btn {
+  width: 100%;
+}

@@ -1,0 +1,83 @@
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  height: 64px;
+  background: rgba(5, 5, 15, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.brand-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+}
+
+.brand-sub {
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active { color: var(--gold); }
+
+.btn-logout {
+  background: transparent;
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  color: var(--gold);
+  padding: 0.4rem 1.1rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+.btn-logout:hover { background: rgba(255, 215, 0, 0.1); }
+
+.btn-signin {
+  background: var(--gold) !important;
+  color: #05050f !important;
+  padding: 0.45rem 1.3rem;
+  border-radius: 2px;
+  font-weight: 700;
+  font-size: 0.8rem !important;
+}
+
+.btn-signin:hover { background: #ffe44d !important; }
+
+.page-content {
+  padding-top: 64px;
+  min-height: 100vh;
+}

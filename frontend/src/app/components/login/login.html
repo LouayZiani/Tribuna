@@ -1,0 +1,73 @@
+<div class="login-page">
+  <div class="login-card">
+
+    <div class="card-brand">
+      <span class="brand-name">TRIBUNA</span>
+      <span class="brand-tag">Kazakhstan Premier League</span>
+    </div>
+
+    <!-- Tab switcher -->
+    <div class="tabs">
+      <button class="tab" [class.active]="activeTab === 'login'" (click)="switchTab('login')">
+        Sign In
+      </button>
+      <button class="tab" [class.active]="activeTab === 'register'" (click)="switchTab('register')">
+        Register
+      </button>
+    </div>
+
+    @if (errorMessage) {
+      <div class="error-msg">{{ errorMessage }}</div>
+    }
+    @if (successMessage) {
+      <div class="success-msg">{{ successMessage }}</div>
+    }
+
+    <!-- LOGIN FORM -->
+    @if (activeTab === 'login') {
+      <form class="auth-form" (ngSubmit)="onLogin()">
+        <div class="field">
+          <label>Username</label>
+          <input type="text" [(ngModel)]="loginUsername" name="loginUsername"
+                 placeholder="your_username" />
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" [(ngModel)]="loginPassword" name="loginPassword"
+                 placeholder="••••••••" />
+        </div>
+        <button type="submit" class="btn btn-primary submit-btn" [disabled]="isLoading">
+          @if (isLoading) { <span class="spinner"></span> }
+          Sign In
+        </button>
+      </form>
+    }
+
+    <!-- REGISTER FORM -->
+    @if (activeTab === 'register') {
+      <form class="auth-form" (ngSubmit)="onRegister()">
+        <div class="field">
+          <label>Username</label>
+          <input type="text" [(ngModel)]="registerUsername" name="registerUsername"
+                 placeholder="choose_username" />
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="email" [(ngModel)]="registerEmail" name="registerEmail"
+                 placeholder="you@example.com" />
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" [(ngModel)]="registerPassword" name="registerPassword"
+                 placeholder="••••••••" />
+        </div>
+        <button type="submit" class="btn btn-primary submit-btn" [disabled]="isLoading">
+          @if (isLoading) { <span class="spinner"></span> }
+          Create Account
+        </button>
+      </form>
+    }
+
+    <p class="back-link"><a routerLink="/home">← Back to home</a></p>
+  </div>
+</div>

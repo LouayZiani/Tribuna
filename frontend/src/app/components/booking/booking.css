@@ -1,0 +1,133 @@
+.booking-page {
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.booking-header {
+  margin-bottom: 1.5rem;
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+.btn-back:hover { color: var(--gold); }
+
+.match-title h1 {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
+.match-title p {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+/* Stadium map */
+.stadium-map {
+  background: #060f06;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+.stadium-map svg {
+  width: 100%;
+  max-width: 560px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Filter bar */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.filter-bar label {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+}
+
+.filter-bar select {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.legend {
+  display: flex;
+  gap: 0.75rem;
+  margin-left: auto;
+}
+
+.leg {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+}
+.leg.available { background: rgba(57,217,138,0.12); color: #39d98a; border: 1px solid rgba(57,217,138,0.3); }
+.leg.taken { background: rgba(255,255,255,0.05); color: var(--text-dim); border: 1px solid var(--border); opacity: 0.5; }
+.leg.vip-badge { background: rgba(255,215,0,0.12); color: var(--gold); border: 1px solid rgba(255,215,0,0.3); }
+
+/* Seats grid */
+.seats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  gap: 0.4rem;
+}
+
+.seat {
+  position: relative;
+  padding: 0.55rem 0.25rem;
+  background: rgba(57,217,138,0.08);
+  border: 1px solid rgba(57,217,138,0.25);
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 0.72rem;
+  color: #39d98a;
+  font-weight: 600;
+  transition: background 0.15s, transform 0.1s;
+  user-select: none;
+}
+
+.seat:hover:not(.unavailable) {
+  background: rgba(57,217,138,0.2);
+  transform: scale(1.05);
+}
+
+.seat.vip {
+  background: rgba(255,215,0,0.08);
+  border-color: rgba(255,215,0,0.3);
+  color: var(--gold);
+}
+.seat.vip:hover:not(.unavailable) {
+  background: rgba(255,215,0,0.18);
+}
+
+.seat.unavailable {
+  background: rgba(255,255,255,0.03);
+  border-color: rgba(255,255,255,0.07);
+  color: var(--text-dim);
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.seat-row { display: block; }
+.taken-label { font-size: 0.7rem; color: var(--text-dim); }
