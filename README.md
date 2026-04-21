@@ -10,7 +10,7 @@
 | Name | GitHub |
 |------|--------|
 | Louay Ziani | [@LouayZiani](https://github.com/LouayZiani) |
-| Nursaya G. | [@nursayag17](https://github.com/nursayag17) |
+| Nursultan A. | [@nursayag17](https://github.com/nursayag17) |
 | A. Zhaparov | [@AZhaparov07](https://github.com/AZhaparov07) |
 
 > **Practice Lesson:** Wednesday 15-17  
